@@ -28,7 +28,6 @@ class TestBurgersPopup:
         driver.choosing_filling_bb()
 
 
-
     @classmethod
     def teardown_class(cls):
         # закрыли браузер
