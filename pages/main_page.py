@@ -1,3 +1,5 @@
+import random
+import time
 import allure
 from locators.main_pages_locators import MainPage_locators
 
@@ -24,3 +26,51 @@ class MainPage:
     def click_cabinet_btn(self):  # Личный кабинет через кнопку на главном экране
         self.driver.find_element(*MainPage_locators.btn_account).click()
         assert self.driver.find_element(*MainPage_locators.assert_page_loc), 'Ожидается кнопка войти'
+
+    @allure.step("Рандомный выбор булки")
+    def choosing_loaf(self): # Нажатие на Рандомную булку
+        element = self.driver.find_elements(*MainPage_locators.choosing_loaf)
+        random_loaf = random.choice(element)
+        random_loaf.click()
+        assert self.driver.find_element(*MainPage_locators.popup).is_displayed()
+
+    @allure.step("Рандомный выбор соуса")
+    def choosing_sauce(self):  # Нажатие на Рандомную булку
+        element = self.driver.find_elements(*MainPage_locators.choosing_sauce)
+        random_loaf = random.choice(element)
+        random_loaf.click()
+        assert self.driver.find_element(*MainPage_locators.popup).is_displayed()
+
+    @allure.step("Рандомный выбор начинки")
+    def choosing_filling(self):  # Нажатие на Рандомную булку
+        element = self.driver.find_elements(*MainPage_locators.choosing_filling)
+        random_loaf = random.choice(element)
+        random_loaf.click()
+        assert self.driver.find_element(*MainPage_locators.popup).is_displayed()
+
+    @allure.step("Закрыть поп ап")
+    def popup_exit(self): # Нажатие на Рандомную булку
+        self.driver.find_element(*MainPage_locators.exit_popup).click()
+        time.sleep(1)
+        assert  self.driver.find_element(*MainPage_locators.popup).is_displayed() == False
+
+    @allure.step("Рандомный выбор булки DD")
+    def choosing_loaf_bb(self): # Нажатие на Рандомную булку
+        element = self.driver.find_elements(*MainPage_locators.choosing_loaf)
+        random_loaf = random.choice(element)
+        random_loaf.click()
+        assert self.driver.find_element(*MainPage_locators.popup).is_displayed()
+
+    @allure.step("Рандомный выбор соуса DD")
+    def choosing_sauce_bb(self):  # Нажатие на Рандомную булку
+        element = self.driver.find_elements(*MainPage_locators.choosing_sauce)
+        random_loaf = random.choice(element)
+        random_loaf.click()
+        assert self.driver.find_element(*MainPage_locators.popup).is_displayed()
+
+    @allure.step("Рандомный выбор начинки DD")
+    def choosing_filling_bb(self):  # Нажатие на Рандомную булку
+        element = self.driver.find_elements(*MainPage_locators.choosing_filling)
+        random_loaf = random.choice(element)
+        random_loaf.click()
+        assert self.driver.find_element(*MainPage_locators.popup).is_displayed()

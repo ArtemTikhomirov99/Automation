@@ -7,7 +7,7 @@ def generate_login():
     prefix = ''.join(random.choices(string.ascii_lowercase + string.digits, k=8))
     domain = "ya.ru"
     email = f"{prefix}@{domain}"
-    file = open("generators/resource/Email.txt", "w+")
+    file = open("./generators/resource/Email.txt", "w+")
     try:
         file.write(email)  # работа с файлом
     finally:
