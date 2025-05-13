@@ -1,7 +1,8 @@
 import allure
 from selenium import webdriver
 from pages.main_page import MainPage
-from pages.base_pages import BasePages
+
+
 
 class TestBurgersPopup:
     @classmethod
@@ -9,25 +10,18 @@ class TestBurgersPopup:
         # создали драйвер для браузера Chrome
         cls.driver = webdriver.Chrome()
 
-    @allure.title('Набор ингридиентов для бургера')
-    @allure.description('Вбор рандомного ингридиента')
+    @allure.title('Выбор ингридиентов для бургера')
+    @allure.description('Выбор и нажатие на рандомный ингридиент')
     @allure.link("https://stellarburgers.nomoreparties.site", name='Ссылка на Главную')
     def test_popup(self):
         self.driver.get("https://stellarburgers.nomoreparties.site")
         driver = MainPage(self.driver)
-        driver.click_cabinet_btn()
-        driver = BasePages(self.driver)
-        driver.check_input_email()
-        driver.input_email()
-        driver.check_input_password()
-        driver.input_password()
-        driver.click_input()
-        driver = MainPage(self.driver)
-        driver.choosing_loaf_bb()
-        driver.choosing_sauce_bb()
-        driver.choosing_filling_bb()
-
-
+        driver.choosing_loaf()
+        driver.popup_exit()
+        driver.choosing_sauce()
+        driver.popup_exit()
+        driver.choosing_filling()
+        driver.popup_exit()
 
     @classmethod
     def teardown_class(cls):

@@ -21,6 +21,7 @@ class TestRegistration:
         driver = Registration(self.driver)
         driver.registration()
 
+
     @classmethod
     def teardown_class(cls):
         # закрыли браузер

@@ -1,6 +1,5 @@
 import random
 import time
-from selenium.webdriver.support import expected_conditions as EC
 import allure
 from locators.main_pages_locators import MainPage_locators
 
@@ -35,14 +34,14 @@ class MainPage:
         random_loaf.click()
         assert self.driver.find_element(*MainPage_locators.popup).is_displayed()
 
-    @allure.step("Рандомный выбор булки")
+    @allure.step("Рандомный выбор соуса")
     def choosing_sauce(self):  # Нажатие на Рандомную булку
         element = self.driver.find_elements(*MainPage_locators.choosing_sauce)
         random_loaf = random.choice(element)
         random_loaf.click()
         assert self.driver.find_element(*MainPage_locators.popup).is_displayed()
 
-    @allure.step("Рандомный выбор булки")
+    @allure.step("Рандомный выбор начинки")
     def choosing_filling(self):  # Нажатие на Рандомную булку
         element = self.driver.find_elements(*MainPage_locators.choosing_filling)
         random_loaf = random.choice(element)
@@ -54,3 +53,24 @@ class MainPage:
         self.driver.find_element(*MainPage_locators.exit_popup).click()
         time.sleep(1)
         assert  self.driver.find_element(*MainPage_locators.popup).is_displayed() == False
+
+    @allure.step("Рандомный выбор булки DD")
+    def choosing_loaf_bb(self): # Нажатие на Рандомную булку
+        element = self.driver.find_elements(*MainPage_locators.choosing_loaf)
+        random_loaf = random.choice(element)
+        random_loaf.click()
+        assert self.driver.find_element(*MainPage_locators.popup).is_displayed()
+
+    @allure.step("Рандомный выбор соуса DD")
+    def choosing_sauce_bb(self):  # Нажатие на Рандомную булку
+        element = self.driver.find_elements(*MainPage_locators.choosing_sauce)
+        random_loaf = random.choice(element)
+        random_loaf.click()
+        assert self.driver.find_element(*MainPage_locators.popup).is_displayed()
+
+    @allure.step("Рандомный выбор начинки DD")
+    def choosing_filling_bb(self):  # Нажатие на Рандомную булку
+        element = self.driver.find_elements(*MainPage_locators.choosing_filling)
+        random_loaf = random.choice(element)
+        random_loaf.click()
+        assert self.driver.find_element(*MainPage_locators.popup).is_displayed()
